@@ -13,6 +13,7 @@ const getInnertube = () => {
     if (!innertubePromise) {
         // Lazy init to avoid network calls during import time (e.g. when building)
         innertubePromise = Innertube.create({
+            lang: 'pl',
             fetch: (input, init) => {
                 const url = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
 
@@ -102,12 +103,12 @@ export const getDataByPlaylistId = async ({ playlistId, embed }: { playlistId: s
                     author:
                         'author' in video
                             ? [
-                                  {
-                                      name: video.author.name,
-                                      url: video.author.url,
-                                      avatar: video.author.thumbnails?.[0]?.url,
-                                  },
-                              ]
+                                {
+                                    name: video.author.name,
+                                    url: video.author.url,
+                                    avatar: video.author.thumbnails?.[0]?.url,
+                                },
+                            ]
                             : undefined,
                     image: img,
                     attachments: [
