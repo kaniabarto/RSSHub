@@ -13,6 +13,8 @@ const getInnertube = () => {
     if (!innertubePromise) {
         // Lazy init to avoid network calls during import time (e.g. when building)
         innertubePromise = Innertube.create({
+            lang: 'pl',
+            location: 'PL',
             fetch: (input, init) => {
                 const url = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
 
